@@ -8,5 +8,3 @@ job.hour.on(23)
 
 for job in my_cron:
     print(job,job.is_valid())
-
-    
