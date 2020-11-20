@@ -3,12 +3,12 @@ import os
 from googleapiclient.discovery import build
 from google.oauth2 import service_account
 import logging
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 
 
 SCOPES = ['https://www.googleapis.com/auth/analytics.readonly']
 BASE_DIR = '/home/pdaniel/web-analytics/'
-KEY_FILE_LOCATION = os.path.join(BASE_DIR,'cencoos-web-analytics-5303bfd7dcbb.json')
+KEY_FILE_LOCATION = os.path.join(BASE_DIR,'keys/cencoos-web-analytics-5303bfd7dcbb.json')
 VIEW_ID = '10796414'
 
 def initialize_analyticsreporting():

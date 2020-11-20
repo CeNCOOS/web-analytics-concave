@@ -1,3 +1,5 @@
 .DS_Store
-.json
-.csv
+*.json
+*.csv
+keys/
+.ipynb_checkpoints/
