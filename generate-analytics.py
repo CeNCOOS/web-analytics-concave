@@ -113,6 +113,13 @@ if __name__ == "__main__":
     # Run again for Data Services
     KEY_FILE_LOCATION = os.path.join(BASE_DIR,'keys/resounding-axe-293817-00844a9aafb0.json')
     VIEW_ID = "180542384"
+    FILE_NAME = 'services-analytics-data.csv'
+    build_dataframe()
+    copy_file_to_webserver()
+
+    # Run again for Data Services
+    KEY_FILE_LOCATION = os.path.join(BASE_DIR,'keys/resounding-axe-293817-00844a9aafb0.json')
+    VIEW_ID = "81137966"
     FILE_NAME = 'portal-analytics-data.csv'
     build_dataframe()
     copy_file_to_webserver()

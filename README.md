@@ -16,5 +16,5 @@ Since CeNCOOS does not have Admin privileges on the Data Portal and Services Ana
 `generate-analytics.py` is set on a CRON job to run at 23:00 every day, this is setup using the `schedule-cron-web-analytics.py` script, which should only be run at setup.
 
 ## Output
-`generate-analytics.py` creates `analytics-data.csv` which is then moved over to skyrocket8 via a scp command. In order to scp, you have to setup an SSH-KEY and give the public key to Skyrocket8. Pat can help with setting this up.
+`generate-analytics.py` creates a csv file which is then moved over to skyrocket8 via a scp command. In order to scp, you have to setup an SSH-KEY and give the public key to Skyrocket8. Pat can help with setting this up.
 
