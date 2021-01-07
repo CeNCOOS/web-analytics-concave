@@ -57,7 +57,7 @@ def get_report(analytics,metric):
           'viewId': VIEW_ID,
           'dimensions': [{'name': 'ga:date'}],
           'metrics': [{'expression': metric}],
-          'dateRanges': [{'startDate': '32daysAgo', 'endDate': 'today'}]
+          'dateRanges': [{'startDate': '365daysAgo', 'endDate': 'today'}]
         }]
       }
   ).execute()
@@ -65,9 +65,12 @@ def get_report(analytics,metric):
 def write_dataframe(df):
     out_df = df[['date','sessions','users']].copy(deep=True)
     out_df['date'] = pd.to_datetime(out_df['date'])
-    out_df['sessions'] = out_df['sessions'].astype(str)
-    out_df['users'] = out_df['users'].astype(str)
-    out_df.to_csv(os.path.join(BASE_DIR,'data',FILE_NAME),index=False)
+    out_df.index = out_df['date']
+    monthly_df = out_df.resample('1M').sum()
+    monthly_df['sessions'] = monthly_df['sessions'].astype(str)
+    monthly_df['users'] = monthly_df['users'].astype(str)
+    monthly_df = monthly_df.reset_index()
+    monthly_df.to_csv(os.path.join(BASE_DIR,'data',FILE_NAME),index=False)
 
 def build_dataframe():
     metrics = [
@@ -106,20 +109,20 @@ def copy_file_to_webserver():
 if __name__ == "__main__":
     KEY_FILE_LOCATION = os.path.join(BASE_DIR,'keys/cencoos-web-analytics-5303bfd7dcbb.json')
     VIEW_ID = '10796414'
-    FILE_NAME = 'analytics-data.csv'
+    FILE_NAME = 'analytics-data-monthly.csv'
     build_dataframe()
     copy_file_to_webserver()
 
     # Run again for Data Services
     KEY_FILE_LOCATION = os.path.join(BASE_DIR,'keys/resounding-axe-293817-00844a9aafb0.json')
     VIEW_ID = "180542384"
-    FILE_NAME = 'services-analytics-data.csv'
+    FILE_NAME = 'services-analytics-data-monthly.csv'
     build_dataframe()
     copy_file_to_webserver()
 
     # Run again for Data Services
     KEY_FILE_LOCATION = os.path.join(BASE_DIR,'keys/resounding-axe-293817-00844a9aafb0.json')
     VIEW_ID = "81137966"
-    FILE_NAME = 'portal-analytics-data.csv'
+    FILE_NAME = 'portal-analytics-data-monthly.csv'
     build_dataframe()
     copy_file_to_webserver()
