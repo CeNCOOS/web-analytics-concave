@@ -18,3 +18,5 @@ Since CeNCOOS does not have Admin privileges on the Data Portal and Services Ana
 ## Output
 `generate-analytics.py` creates a csv file which is then moved over to skyrocket8 via a scp command. In order to scp, you have to setup an SSH-KEY and give the public key to Skyrocket8. Pat can help with setting this up.
 
+## Update
+The new google data api (ga4) is running currently on the CeNCOOS website.  The monthly file and daily files are now get_monthly_ga4_update.py and get_analytics_ga4_cencoos_update.py
