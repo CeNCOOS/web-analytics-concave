@@ -21,3 +21,5 @@ Since CeNCOOS does not have Admin privileges on the Data Portal and Services Ana
 ## Update
 The new google data api (ga4) is running currently on the CeNCOOS website.  The monthly file and daily files are now get_monthly_ga4_update.py and get_analytics_ga4_cencoos_update.py<p>
 The update files have been placed into the repository.  Note that Google IDs and Google credential files have been removed and you will need to add your own IDs and credentials in the appropriate places to have the code run.
+## old code
+The files generate-analytics.py and generate-analytics-monthly.py are for the old Google Analytics (Universal Analytics).  These files are depreciated.
