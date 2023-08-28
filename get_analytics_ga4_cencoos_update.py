@@ -53,10 +53,10 @@ syear=str(mystart.year)
 smon=str(mystart.month)
 sday=str(mystart.day)
 # CeNCOOS property ID
-property_id=311670892
+property_id=property_id
 # create google data api client?
 # set path to credentials
-credentials_json_path="/home/flbahr/CeNCOOS-GA4-031d7df9dd8c.json" # put in correct json file name
+credentials_json_path="path_to_credential_file" # put in correct json file name
 #client=BetaAnalyticsDataClient().from_service_json(credentials_json_path)
 client=BetaAnalyticsDataClient()
 # example code from google
@@ -81,7 +81,6 @@ Metric(name="screenPageViews")]
 
 requests=RunReportRequest(
     property=f"properties/{property_id}",
-    #property=properties/311670892,
     dimensions=mydimensions,
     metrics=mymetrics,
     date_ranges=mydaterange,
